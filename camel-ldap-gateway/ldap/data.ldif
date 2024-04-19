@@ -1,0 +1,5 @@
+dn: uid=angel,dc=example,dc=com
+cn: angel
+sn: angel
+objectClass: inetOrgPerson
+userPassword: {SSHA}BvDxXHjDHujBQmTEZLS2SvUA/JgaXTs0
