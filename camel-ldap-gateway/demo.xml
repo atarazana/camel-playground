@@ -1,0 +1,8 @@
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+            <Body>
+                <add xmlns="http://www.jboss.org/eap/quickstarts/wscalculator/Calculator">
+                    <arg0 xmlns="">7</arg0> 
+                    <arg1 xmlns="">4</arg1>
+                </add>
+            </Body>
+</Envelope>
