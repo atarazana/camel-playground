@@ -5,7 +5,16 @@ import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.ClaimCheckOperation;
 
+import com.example.raf.camel.config.Endpoint;
+
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+
+@ApplicationScoped
 public class Routes extends RouteBuilder {
+
+    @Inject
+    Endpoint endpoint;
 
     @Override
     public void configure() throws RuntimeCamelException {
@@ -26,7 +35,9 @@ public class Routes extends RouteBuilder {
 
         from("direct:A")
                 .removeHeader(Exchange.HTTP_PATH)
-                .recipientList(simple("http://localhost:8082/calculator-ws/CalculatorService?bridgeEndpoint=true"))
+                .recipientList(simple("http://" + endpoint.host() + ":" + endpoint.port()
+                        + ((endpoint.path().startsWith("/")) ? endpoint.path() : "/" + endpoint.path())
+                        + "?bridgeEndpoint=true"))
                 .log("redirected");
 
     }
