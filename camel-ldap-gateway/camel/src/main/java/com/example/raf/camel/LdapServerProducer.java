@@ -22,7 +22,7 @@ public class LdapServerProducer {
         env.put(Context.URL_PKG_PREFIXES, "com.sun.jndi.url");
         env.put(Context.SECURITY_AUTHENTICATION, "simple");
         env.put(Context.SECURITY_PRINCIPAL, "cn=admin,dc=example,dc=com");
-        env.put(Context.SECURITY_CREDENTIALS, "password");
+        env.put(Context.SECURITY_CREDENTIALS, "adminpassword");
 
         return new InitialLdapContext(env, null);
     }
