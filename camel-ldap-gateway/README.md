@@ -13,7 +13,7 @@ This project implements a use case where a SOAP service client communicates with
 Some components are containerized; Podman has been used for this purpose.
 1. **First Step**: Execute `ldap/run.sh` to launch OpenLDAP and load the LDIF.
 2. **Second Step**: Start the SOAP service by running `soap-service/run.sh`.
-3. **Third Step**: Run the Camel route. Navigate to the Camel directory and execute `mvn quarkus:dev`.
+3. **Third Step**: Run the Camel route. Navigate to the `camel` directory and execute `mvn quarkus:dev`.
 4. **Fourth Step**: Execute the client by running `soap-client/run.sh`.
 
 ## Additional Notes
