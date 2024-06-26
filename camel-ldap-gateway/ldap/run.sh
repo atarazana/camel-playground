@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+
 CONTAINER_NAME="openldap"
 LDAP_PORT="1389"
 LDAP_ADMIN_PASSWORD="adminpassword"
@@ -20,6 +22,6 @@ podman run -d --name $CONTAINER_NAME \
 
 sleep 5
 
-podman cp $LDIF_FILE $CONTAINER_NAME:/
+podman cp "$SCRIPT_DIR/$LDIF_FILE" $CONTAINER_NAME:/
 
 podman exec -i $CONTAINER_NAME ldapadd -x -D "cn=admin,dc=example,dc=com" -w $LDAP_ADMIN_PASSWORD -f $LDIF_FILE

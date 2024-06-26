@@ -1,9 +1,12 @@
 #!/bin/bash
 
+SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+PAYLOAD_FILE="$SCRIPT_DIR/demo.xml"
+
 send_request() {
     local endpoint="http://localhost:8080/calc"
     local username_header="username: $1"
-    local payload="@demo.xml"
+    local payload=@"$PAYLOAD_FILE"
 
     curl \
     -s \
